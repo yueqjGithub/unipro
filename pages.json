@@ -14,9 +14,20 @@
 				"navigationBarTitleText": "登录",
 				"enablePullDownRefresh": false
 			}
-
 		}
 	],
+	"subPackages": [{
+		"root": "application",
+		"pages": [
+			{
+				"path": "formwork/one/one",
+				"style": {
+					"navigationBarTitleText": "外卖",
+					"enablePullDownRefresh": false
+				}
+			}
+		]
+	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
