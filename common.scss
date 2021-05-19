@@ -1,0 +1,170 @@
+@import "./static/iconfont.css";
+:root{
+	font-family: 'yahei';
+	box-sizing: border-box;
+}
+.rtl{
+	direction: rtl;
+}
+.text-wrap{
+	white-space: pre-wrap;
+}
+text,view,input,textarea{
+	font-family: 'yahei';
+}
+.text-primary{
+	color: $uni-color-primary;
+}
+.text-cus-warning{
+	color: $cus-color-warning;
+}
+.text-cus-error{
+	color: $cus-color-error;
+}
+.text-white{color: #FFFFFF !important;}
+.text-light-grey{
+	color: #F3F3F3;
+}
+.text-grey{
+	color: #A9A9A9;
+}
+.text-dk-grey{color: #555555 !important;}
+.text-grey-1{
+	color: #aaaaaa;
+}
+.text-12{
+	font-size: 12px;
+}
+.text-14{font-size: 14px;}
+.text-16{font-size: 16px;}
+.text-18{font-size: 18px;}
+.text-24{font-size: 24px;}
+.text-32{font-size: 32px;}
+.text-bold{font-weight: bold;}
+.text-center{text-align: center;}
+.text-left{text-align: left;}
+.text-right{text-align: right;}
+.bg-white{
+	background: #FFFFFF !important;
+}
+.bg-grey{
+	background: #f3f3f3;
+}
+.bg-primary{background: $uni-color-primary;}
+.font-sm{
+	font-size: 12px;
+}
+
+.full-width{width: 100% !important;}
+.width-90{width: 90%;}
+.width-80{width: 80%;}
+.full-height{height: 100%;}
+.border-box{box-sizing: border-box;}
+.border-btm{border-bottom: 1px solid #f3f3f3;}
+// --------flex公共类
+.flex-row{display: flex; flex-direction: row;}
+.flex-row-reverse{display: flex; flex-direction: row-reverse;}
+.flex-column{display: flex; flex-direction: column;}
+.flex-column-reverse{display: flex; flex-direction: column-reverse;}
+.flex-jst-start{justify-content: flex-start;}
+.flex-jst-end{justify-content: flex-end;}
+.flex-jst-center{justify-content: center;}
+.flex-jst-ard{justify-content: space-around;}
+.flex-jst-btw{justify-content: space-between;}
+.flex-ali-start{align-items: flex-start;}
+.flex-ali-center{align-items: center;}
+.flex-ali-end{align-items: flex-end;}
+.flex-ali-base{align-items: baseline;}
+.flex-wrap{flex-wrap: wrap;}
+.flex-nowrap{flex-wrap: nowrap;}
+.flex-1{flex: 1;}
+.flex-2{flex: 2;}
+.flex-3{flex: 3;}
+.flex-4{flex: 4;}
+.self-end{align-self: flex-end;}
+.self-stretch{
+	align-self: stretch;
+}
+// ---------------float
+.fl{float: left;}
+.clear::after{
+		content: '';
+		width: 0;
+		height: 0;
+		visibility: hidden;
+		clear: both;
+	}
+// --------------公共padding margin-------------
+.pa-sm{padding: 5.55rpx;}
+.pa-md{padding: 27.77rpx;}
+.pa-md-2{padding: 20rpx;}
+.ma-md{margin: 27.77rpx;}
+.ma-sm{margin: 15rpx;}
+.pa-row-md{padding: 0 27.77rpx;}
+.pa-col-md{padding: 27.77rpx 0;}
+.pa-col-sm{padding: 5.55rpx 0;}
+.ma-row-md{margin: 0 27.77rpx;}
+.ma-row-sm{margin: 0 15rpx;}
+.ma-col-md{margin: 27.77rpx 0;}
+.ma-col-sm{margin: 15rpx 0;}
+.ma-col-lg{margin: 28px 0;}
+.pa-btm-md{padding-bottom: 27.77rpx;}
+.pa-lg{
+	padding: 28px;
+}
+.pa-row-lg{
+	padding-left: 28px;
+	padding-right: 28px;
+}
+.pa-col-lg{
+	padding-top: 28px;
+	padding-bottom: 28px;
+}
+.ma-top-5{
+	margin-top: 5px;
+}
+.ma-rt-5{margin-right: 5px;}
+
+.tab-add{
+	height: 56px;
+	width: 100%;
+}
+
+// ----ui框架样式更改
+.my-swiper{
+	.u-swiper-wrap{
+		box-shadow:0 7px 7px -5px #000000;
+	}
+}
+.reverse-icon{
+	transform: rotate(180deg);
+}
+// ------- 通知栏反向
+.notice-reverse{
+	.u-swiper-item{
+		justify-content: flex-end !important;
+	}
+}
+// ----无样式Button
+.plain-btn{
+	background: transparent !important;
+	&::after{
+		border: none;
+	}
+	&::before{
+		border: none;
+	}
+}
+
+.cus-plain-btn{
+	background: none;
+	border: none;
+	&.charge-row{
+		padding: 7rpx 0;
+		border-radius: 0;
+	}
+	&:after{
+		border: none !important;
+		background: none !important;
+	}
+}
