@@ -27,9 +27,9 @@
 			// },
 		},
 		methods: {
-			toPage (path) {
+			toPage (target) {
 				uni.navigateTo({
-					url: path.path
+					url: `/application/formwork/one/one?cate_id=${target.id}&cate_name=${target.name}`
 				})
 			}
 		}

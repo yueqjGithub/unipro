@@ -18,15 +18,17 @@
 	],
 	"subPackages": [{
 		"root": "application",
-		"pages": [
-			{
-				"path": "formwork/one/one",
-				"style": {
-					"navigationBarTitleText": "外卖",
-					"enablePullDownRefresh": false
-				}
+		"pages": [{
+			"path": "formwork/one/one",
+			"style": {
+				"navigationBarTitleText": "外卖"
 			}
-		]
+		}, {
+			"path": "phone/phone",
+			"style": {
+				"navigationBarTitleText": "话费充值"
+			}
+		}]
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

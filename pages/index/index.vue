@@ -13,6 +13,25 @@
 				<Item :item="k"></Item>
 			</view>
 		</view>
+		<!-- list -->
+		<view class="ma-top-10 bg-white"> 
+			<view class="list-tit border-btm flex-row flex-jst-btw flex-ali-center pa-md">
+				<text class="text-14 text-bold">商家推荐</text>
+				<!-- <text class="text-12">更多</text> -->
+			</view>
+			<view class="shop-item flex-row pa-md flex-jst-btw flex-ali-center" v-for="k in shopList" :key="k.product_number">
+				<u-image :src='k.image' mode='scaleToFill' width="20vw" height="20vw" class="ma-rt-5"></u-image>
+				<view class="shop-right flex-2 flex-column flex-jst-btw self-stretch flex-ali-start">
+					<text class="shop-name text-14 text-bold">{{k.product_name}}</text>
+					<view class="full-width flex-row flex-jst-btw flex-ali-center">
+						<view class="shop-tag-out flex-row flex-jst-start flex-ali-center">
+							<view class="shop-tag" v-for="j in k.tag" :key="j">{{j}}</view>
+						</view>
+						<text class="text-primary">￥{{k.sale_price}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
 		<!-- tabbar-->
 		<view class='tab-add'></view>
 		<cus-tabbar></cus-tabbar>
@@ -31,7 +50,8 @@
 		data() {
 			return {
 				bannerList: [],
-				menuList: []
+				menuList: [],
+				shopList: []
 			}
 		},
 		onShow () {
@@ -42,9 +62,9 @@
 				const vm = this
 				try {
 					const res = await vm.$get(urls.whiteList.index)
-					console.log(res)
 					vm.bannerList = [...res.data.carousel_map]
 					vm.menuList = [...res.data.menu]
+					vm.shopList = [...res.data.recommend]
 				} catch (e) {
 					vm.$refs.uTips.show({
 						title: e.message,
@@ -63,6 +83,14 @@
 	.menu-item-container {
 		width: 33%;
 		margin-bottom: 38.88rpx;
+	}
+}
+.shop-tag{
+	padding: 2px;
+	background: #f3f3f3;
+	color: $uni-color-primary;
+	&:not(:first-of-type){
+		margin-left: 5px;
 	}
 }
 </style>
