@@ -2,9 +2,12 @@
 	<view class="pages bg-grey">
 		<u-top-tips ref="uTips"></u-top-tips>
 		<view class="pa-md border-btm bg-white search-container">
-			<u-search placeholder="请输入关键字" v-model="search" shape='square' :action-style="{color: '#e84b78'}" @search='searchTest' @custom='searchTest'></u-search>
+			<u-search placeholder="请输入关键字" v-model="search" shape='square' :action-style="{color: '#e84b78'}"
+				@search='searchTest' @custom='searchTest'></u-search>
 		</view>
-		<scroll-view scroll-y="true" @scrolltolower="queryInfo" class="scroll-y">
+		<scroll-view scroll-y="true" @scrolltolower="queryInfo" class="scroll-y" refresher-enabled @refresherrefresh="onRefresh"
+		:refresher-triggered="triggered"
+		>
 			<!-- 列表 -->
 			<view class="shop-item bg-white flex-row pa-md flex-jst-btw flex-ali-center" v-for="k in list"
 				:key="k.product_number">
@@ -29,10 +32,13 @@
 
 <script>
 	import urls from '@/service/urls.js'
-	import { mapState } from 'vuex'
+	import {
+		mapState
+	} from 'vuex'
 	export default {
 		data() {
 			return {
+				triggered: false,
 				search: '',
 				pagenum: 1,
 				pagesize: 20,
@@ -49,6 +55,8 @@
 		computed: {
 			...mapState(['cate_component_maps'])
 		},
+		onPullDownRefresh() {
+		},
 		onShow() {
 			const vm = this
 			this.routeInfo = getCurrentPages().pop().options
@@ -61,7 +69,16 @@
 			this.queryInfo()
 		},
 		methods: {
-			searchTest () {
+			async onRefresh() {
+				this.pagenum = 1
+				this.search = ''
+				this.loadingStatus = 'loadmore'
+				this.list = []
+				this.triggered = true
+				await this.queryInfo()
+				this.triggered = false
+			},
+			searchTest() {
 				const vm = this
 				vm.pagenum = 1
 				vm.list = []
@@ -105,13 +122,15 @@
 </script>
 
 <style lang="scss" scoped>
-	.search-container{
+	.search-container {
 		height: 60px;
 	}
-	.scroll-y{
+
+	.scroll-y {
 		height: calc(100vh - 60px);
 	}
-	.shop-item{
+
+	.shop-item {
 		margin-top: 5px;
 	}
 
