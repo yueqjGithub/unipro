@@ -10,10 +10,11 @@
 		>
 			<!-- 列表 -->
 			<view class="shop-item bg-white flex-row pa-md flex-jst-btw flex-ali-center" v-for="k in list"
-				:key="k.product_number">
+				:key="k.product_number" @click="toApp">
 				<u-image :src='k.image' mode='scaleToFill' width="20vw" height="20vw" class="ma-rt-5"></u-image>
 				<view class="shop-right flex-2 flex-column flex-jst-btw self-stretch flex-ali-start">
 					<text class="shop-name text-14 text-bold">{{k.product_name}}</text>
+					<text class="text-12 text-grey">{{k.desc}}</text>
 					<view class="full-width flex-row flex-jst-btw flex-ali-center">
 						<view class="shop-tag-out flex-row flex-jst-start flex-ali-center">
 							<view class="shop-tag" v-for="j in k.tag" :key="j">{{j}}</view>
@@ -69,6 +70,16 @@
 			this.queryInfo()
 		},
 		methods: {
+			toApp () {
+				const vm = this
+				const path = this.cate_component_maps.find(item => item.cate_id === Number(vm.routeInfo.cate_id)).path
+				uni.navigateTo({
+					url: path,
+					fail(err) {
+						console.log(err)
+					}
+				})
+			},
 			async onRefresh() {
 				this.pagenum = 1
 				this.search = ''
